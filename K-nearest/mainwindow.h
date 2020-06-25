@@ -16,6 +16,12 @@ namespace Ui {
 class MainWindow;
 }
 
+enum AlgorithmType
+{
+    E_WITH_WEIGHT,
+    E_WITHOUT_WEIGHT
+};
+
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
@@ -32,6 +38,7 @@ protected:
 private:
     Ui::MainWindow *ui;
     KNearst m_knearst;
+    AlgorithmType m_type;
 };
 
 #endif // MAINWINDOW_H
