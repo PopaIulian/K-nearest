@@ -26,10 +26,14 @@ CONFIG += c++11
 
 SOURCES += \
         main.cpp \
-        mainwindow.cpp
+        mainwindow.cpp \
+    point.cpp \
+    knearst.cpp
 
 HEADERS += \
-        mainwindow.h
+        mainwindow.h \
+    point.h \
+    knearst.h
 
 FORMS += \
         mainwindow.ui
