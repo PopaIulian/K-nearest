@@ -5,10 +5,12 @@
 #include "qmath.h"
 #include <float.h>
 
-MainWindow::MainWindow(QWidget *parent) :
-    QMainWindow(parent),
-    ui(new Ui::MainWindow)
+MainWindow::MainWindow(QWidget *parent)
+    : QMainWindow(parent)
+    , ui(new Ui::MainWindow)
+    , m_knearst (KNearst(3))
 {
+
     ui->setupUi(this);
    bool res= m_knearst.initialize("../nodes.csv");
 
@@ -21,7 +23,10 @@ MainWindow::~MainWindow()
 
 void MainWindow::mousePressEvent(QMouseEvent *event)
 {
-    QString text = QInputDialog::getText(this, tr("QInputDialog::getText()"), tr("Number of processes:"), QLineEdit::Normal);
+
+    QPoint point(event->pos().x(), event->pos().y());
+    m_knearst.InsertNewPoint(point);
+//    QString text = QInputDialog::getText(this, tr("QInputDialog::getText()"), tr("Number of processes:"), QLineEdit::Normal);
 //    if (event->buttons() == Qt::LeftButton)
 //    {
 //       QString text = QInputDialog::getText(this, tr("QInputDialog::getText()"), tr("Number of processes:"), QLineEdit::Normal);
@@ -46,7 +51,7 @@ void MainWindow::mousePressEvent(QMouseEvent *event)
 //        DetermineCluster();
 //    }
 
-//    repaint();
+    repaint();
 }
 
 

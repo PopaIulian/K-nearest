@@ -8,6 +8,9 @@ class Point
 public:
     Point();
     Point(int x, int y, QColor color);
+    Point(QPoint p, QColor color);
+
+    void operator =( Point& p);
 
     QPoint GetPoint() const;
 

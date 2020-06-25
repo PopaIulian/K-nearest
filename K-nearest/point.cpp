@@ -12,6 +12,19 @@ Point::Point(int x, int y, QColor color)
 
 }
 
+Point::Point(QPoint p, QColor color)
+    :m_point(p)
+    ,m_color(color)
+{
+
+}
+
+void Point::operator =( Point &p)
+{
+    m_color = p.m_color;
+    m_point = p.m_point;
+}
+
 QPoint Point::GetPoint() const
 {
     return m_point;
